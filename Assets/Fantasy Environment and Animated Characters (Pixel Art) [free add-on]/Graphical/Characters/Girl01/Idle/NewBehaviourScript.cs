@@ -3,11 +3,13 @@ using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-	public float speed;
+	public float Speed;
 
 	void FixedUpdate(){
 		var mousePosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+	    Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
 
+	    transform.rotation = rot;
 	}
 
 	// Use this for initialization
@@ -17,6 +19,9 @@ public class NewBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Quaternion rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
+
+        transform.rotation = rot;
 	}
 }
